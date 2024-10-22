@@ -1,13 +1,14 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Carga el archivo CSV "database_titanic.csv" en un DataFrame de pandas.
 df = pd.read_csv("database_titanic.csv")
 
 # Muestra un título y una descripción en la aplicación Streamlit.
 st.write("""
-# Mi primera aplicación interactiva
+# Diablo
 ## Gráficos usando la base de datos del Titanic
 """)
 
@@ -18,7 +19,8 @@ with st.sidebar:
     
     # Crea un control deslizante (slider) que permite al usuario seleccionar un número de bins
     # en el rango de 0 a 10, con un valor predeterminado de 2.
-    div = st.slider('Número de bins:', 0, 10, 2)
+    colors = ['hotpink','mediumvioletblue','pink','khaki','red','green']
+    div = st.button(np.random_choice(colors))
     
     # Muestra el valor actual del slider en la barra lateral.
     st.write("Bins=", div)
